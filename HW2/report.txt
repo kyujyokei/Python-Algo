@@ -20,7 +20,7 @@ Textbooks for References:
    (e) insertion sort
    (f) heap sort --- not covered yet (see CLRS Ch. 6)
 
-   ANS: (b)
+   ANS: (a) (b) (e)
 
 1. Implement mergesort.
 

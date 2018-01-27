@@ -1,5 +1,5 @@
 def mergesort(a):
-    if len(a) <= 1 : return a
+    if len(a) <= 1: return a
     else:
         mid = len(a)//2
         left = a[:mid]
