@@ -5,6 +5,7 @@ def find (a, var, num):
     a[:] = [x - var for x in a]
     temp = copy.deepcopy(a)
     temp[:] = [abs(x) for x in temp]
+    r = qselect(num, temp)
     res = [x for x in a[:] if abs(x) <= abs(r)]
     res[:] = [x + var for x in res]
     return res[:num]
