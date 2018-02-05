@@ -12,6 +12,10 @@ def mergesort(lst):
         return lst
     return mergesorted(mergesort(lst[:l//2]), mergesort(lst[l//2:]))
 
+
+
+
+
 if __name__ == "__main__":
     import sys, time
     sys.setrecursionlimit(100000)

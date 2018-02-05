@@ -8,18 +8,12 @@ def mergesort(a, m):
         m += mergesort(left, m) + mergesort(right, m)
 
         i, j, k = 0, 0, 0
-        # print(a)
 
         while i < len(left) and j < len(right):
             if left[i] > right[j]:
-                # print(left[i], left, right[j], right)
-
                 a[k] = right[j]
                 j += 1
-                # print("M: ", m, " = M", m, " + LEN: ", len(left), " - i: ", i)
                 m = m + (len(left) - i)
-                # print("M: ",m," = M",m," + LEN: ",len(left), " - i: ",i)
-                # print("M: ",m)
 
             else:
                 a[k] = left[i]
@@ -35,7 +29,6 @@ def mergesort(a, m):
             a[k] = right[j]
             k += 1
             j += 1
-        # print("M", m)
     return m
 
 

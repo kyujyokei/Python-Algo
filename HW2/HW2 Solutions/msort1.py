@@ -19,13 +19,5 @@ def mergesorted(a, b):
             i += 1
     return c
 
-if __name__ == "__main__":
-    import sys, time
-    sys.setrecursionlimit(100000)
-    n = 1000
-    while n <= 128000:
-        a = list(range(n))
-        t = time.time()
-        mergesort(a)
-        print(n, time.time() - t)
-        n *= 2
+
+

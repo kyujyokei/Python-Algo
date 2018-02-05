@@ -20,7 +20,9 @@ def _qselect(k, a):
 def _find(lst, q, k):
     lst_abs = [round(math.fabs(x-q), 10) for x in lst] # floating point
     maxdiff, k_small = _qselect(k, list(lst_abs))
+    print("MAX_D: ",maxdiff, "  K_SMALL: ", k_small)
     rest = k - k_small # those on the boundary
+    print(rest)
     for x, diff in zip(lst, lst_abs):
         if diff < maxdiff:
             yield x

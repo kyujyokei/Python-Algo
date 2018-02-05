@@ -26,15 +26,15 @@ def find(a, x, range):
 
 a = find([1, 2, 3, 4, 4, 7], 5.2, 2)
 print(a)
-    # returns[4, 4]
+#     # returns[4, 4]
 b = find([1, 2, 3, 4, 4, 7], 6.5, 3)
 print(b)
-# returns[4, 4, 7]
-
+# # returns[4, 4, 7]
+#
 c = find([1, 2, 3, 4, 4, 6, 6], 5, 3)
     # returns[4, 4, 6]
 d = find([1, 2, 3, 4, 4, 5, 6], 4, 5)
 print(c)
 print(d)
-    # returns[2, 3, 4, 4, 5]
+#     # returns[2, 3, 4, 4, 5]
 print(find([1,2,3,3,3,4,5], 0, 3))

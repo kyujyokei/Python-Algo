@@ -10,15 +10,6 @@ def sort(a):
 def sorted(tree):
     return [] if tree == [] else sorted(tree[0]) + [tree[1]] + sorted(tree[2])
 
-# def euler_tour(a, list):
-#     print(a)
-#     if (a != []):
-#         euler_tour(a[0], list)
-#         print(type(a[1]))
-#         list.append(a[1])
-#         euler_tour(a[1], list)
-
-
 def _search(tree, x):
     if tree == []:
         return tree
@@ -53,4 +44,5 @@ tree1 = [[[[], 1, []], 2, [[], 3, []]], 4, [[[], 5, []], 6, [[[], 6.5, []], 7, [
 # print(a)
 # sort(tree1)
 print(sorted(tree1))
+print(search(tree1, 6.5))
 # This is O(nlogn) because...

@@ -16,13 +16,13 @@ def find(a, x, k):
                 
     return a[i+1:j]
 
-if __name__ == "__main__":
-   print(find([1,2,3,4,4,7], 5.2, 2)) #   [4,4]
-   print(find([1,2,3,4,4,7], 6.5, 3)) #   [4,4,7]
-   print(find([1,2,3,4,4,6,6], 5, 3)) #   [4,4,6]
-   print(find([1,2,3,4,4,5,6], 4, 5)) #   [2,3,4,4,5]
-   print(find([1], 4, 1)) # [1]
-   print(find([1], 1, 1)) # [1]
-   print(find([1,1,1], 1, 2)) # [1,1]
-   #print(find([1], 4, 2)) # NOT ALLOWED k <= n
-   print(find([4,4,4,6,6,6], 5, 2))
+# if __name__ == "__main__":
+#    print(find([1,2,3,4,4,7], 5.2, 2)) #   [4,4]
+#    print(find([1,2,3,4,4,7], 6.5, 3)) #   [4,4,7]
+#    print(find([1,2,3,4,4,6,6], 5, 3)) #   [4,4,6]
+#    print(find([1,2,3,4,4,5,6], 4, 5)) #   [2,3,4,4,5]
+#    print(find([1], 4, 1)) # [1]
+#    print(find([1], 1, 1)) # [1]
+#    print(find([1,1,1], 1, 2)) # [1,1]
+#    #print(find([1], 4, 2)) # NOT ALLOWED k <= n
+#    print(find([4,4,4,6,6,6], 5, 2))
