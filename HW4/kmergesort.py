@@ -1,7 +1,7 @@
 import heapq
 
 def split(a, k):
-    if len(a) == 1 or a == []:
+    if len(a) < 2:
         return(a)
     avg = len(a)/float(k)
     out = []
@@ -20,25 +20,28 @@ def split(a, k):
 
 
 def merge(a, k):
-    if a == None or len(a) <= 1:
-        return [a]
+    if a == None or len(a) <= 1 or isinstance(a[0],int):
+        return a
 
     else:
         pq = []
         heap = []
         ptr = []
-        for i in range(0, len(a)):
-            # print("A",a)
-            # print(a[i][0])
-            # if a[i] is int:
-            #     heapq.heappush(heap, [a[i], 0, i])
-            # else:
-            #     print("A[i]",a[i])
-            heapq.heappush(heap, [a[i][0], 0, i])
-            # print("FIRST:", heap)
+        if len(a) < k or isinstance(a,int): k = len(a)
+        for i in range(0,k):
+
+            print("A",a)
+            if isinstance(a[i],int):
+                print("A[i]:", a[i], " i:", i)
+                heapq.heappush(heap, [a[i], 0, i])
+            elif a[i] != []:
+                print("A[i]:", a[i], " i:", i)
+                heapq.heappush(heap, [a[i][0], 0, i])
+
+                # print("FIRST:", heap)
             ptr += [[0]]
 
-            # print("TEMP:",temp)
+            print("TEMP:",heap,"\n")
 
         while heap != []:
             min_v = heapq.heappop(heap)
@@ -57,7 +60,7 @@ def merge(a, k):
     # return split(out, sec)
 
 
-print(split([5,3,4,10,8,2,6,11,9],5))
+print(split([5,3,4,10,8,2,6,11,9],4))
 
 # 2. k-way mergesort (the classical mergesort is a special case where k=2).
 #
