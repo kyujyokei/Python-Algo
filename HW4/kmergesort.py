@@ -1,62 +1,63 @@
 import heapq
 
-def kmerge(a, x):
-    heap = []
-    # split(a, x, heap)
-
-# def mergesort(lst):
-#     l = len(lst)
-#     if l <= 1:
-#         return lst
-#     return mergesorted(mergesort(lst[:l//2]), mergesort(lst[l//2:]))
-#
-# def mergesorted(a, b):
-#     i, j = 0, 0
-#     la, lb = len(a), len(b)
-#     while i < la or j < lb:
-#         if i == la or (j != lb and a[i] > b[j]):
-#             yield b[j]
-#             j += 1
-#         else:
-#             yield a[i]
-#             i += 1
-
-def split(a, sec):
-
+def split(a, k):
     if len(a) == 1 or a == []:
         return(a)
-
-    avg = len(a)/float(sec)
+    avg = len(a)/float(k)
     out = []
-    heap = []
     temp = []
     last = 0.0
-    # print("AVG:",avg)
 
     while last < len(a):
         out.append(a[int(last):int(last + avg)])
-        # print(last, avg)
         last += avg
 
     for x in out:
-        split(x, sec)
-        if x != []:
-            heapq.heappush(heap,x)
-            print("heap:", heap)
-            # heapq.heapify(heap)
-            temp heapq.heappop(heap)
-            print("heap:",heap)
-            print("tem1:", temp, "\n")
-    # print("temp:",temp)
+        temp.append(merge(split(x, k),k))
+    res = merge(temp, k)
+    return res
 
-    # print(heap)
-    return temp
+
+
+def merge(a, k):
+    if a == None or len(a) <= 1:
+        return [a]
+
+    else:
+        pq = []
+        heap = []
+        ptr = []
+        for i in range(0, len(a)):
+            # print("A",a)
+            # print(a[i][0])
+            # if a[i] is int:
+            #     heapq.heappush(heap, [a[i], 0, i])
+            # else:
+            #     print("A[i]",a[i])
+            heapq.heappush(heap, [a[i][0], 0, i])
+            # print("FIRST:", heap)
+            ptr += [[0]]
+
+            # print("TEMP:",temp)
+
+        while heap != []:
+            min_v = heapq.heappop(heap)
+            var, idx, list_idx = min_v
+            # print("MIN:",min_v, "\n")
+            pq.append(var)
+            # ptr[list_idx] += 1
+            if idx < len(a[list_idx]) - 1:
+                heapq.heappush(heap,[a[list_idx][idx+1],idx+1,list_idx])
+            # print("HEAP:", heap)
+
+        # print("---------pq---------",pq)
+        return pq
 
     # print("OUT:",out)
     # return split(out, sec)
 
 
-print(split([5,3,4,4,8,2,6,4,9],3))
+print(split([5,3,4,10,8,2,6,11,9],5))
 
 # 2. k-way mergesort (the classical mergesort is a special case where k=2).
 #

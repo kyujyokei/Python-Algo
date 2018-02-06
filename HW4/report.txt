@@ -117,7 +117,7 @@ Debriefing (required!): --------------------------
 0. What's your name?
     Kejo Hsieh
 1. Approximately how many hours did you spend on this assignment?
-    8 hours
+    8 hours and another 8 hours for kmergesort
 2. Would you rate it as easy, moderate, or difficult?
     difficult
 3. Did you work on it mostly alone, or mostly with other people?

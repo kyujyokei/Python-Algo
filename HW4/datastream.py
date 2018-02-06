@@ -9,16 +9,16 @@ def ksmallest(k,a):
     if a == [] or len(a) == 1:
         return a
     heap = []
-    for x in a:                         # O(n)
-        x = x * -1
-        if len(heap) < k:
-            heapq.heappush(heap, x)
+    for x in a:                             # O(n)
+        x = x * -1                          # O(1)
+        if len(heap) < k:                   # O(1)
+            heapq.heappush(heap, x)         # O(logk)
         else:
-            if x > heap[0]:
+            if x > heap[0]:                 # O(1)
                 heapq.heappushpop(heap, x)  # O(logk)
-    heap = [x * -1 for x in heap]       # O(n)
-    heap.sort()
-    return heap                # O(nlogn)
+    heap = [x * -1 for x in heap]           # O(n)
+    heap.sort()                             # O(nlogn)
+    return heap
 
 
 def sort(a):
