@@ -25,8 +25,6 @@ def sort(a):
     if a == []:
         return []
     else:
-        # r = random.randint(0, len(a)-1)
-        # a[r], a[0] = a[0], a[r]
         pivot = [x for x in a if x == a[0]]
         left = [x for x in a if x < a[0]]
         right = [x for x in a[1:] if x > a[0]]
