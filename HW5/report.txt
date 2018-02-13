@@ -20,7 +20,7 @@ Textbooks for References:
 
 0. Is Fibonacci REALLY O(n)?
    Hint: f(n) itself grows exponentially.
-   If be use bottom up or cache result method, it's O(n)
+        If be use bottom up or cache result method, it's O(n)
 
 1. [WILL BE GRADED]
    Maximum Weighted Independent Set
@@ -47,6 +47,7 @@ Textbooks for References:
    (0, [])
 
    What's the complexity?
+        O(n)
 
    Include both top-down (max_wis()) and bottom-up (max_wis2()) solutions,
    and make sure they produce exact same results.
@@ -78,8 +79,10 @@ Textbooks for References:
    Note that all other 2-node BSTs are *isomorphic* to either one.
 
    What's the complexity of this DP?
+        O(n^2)
 
    What's the name of this famous number series?
+        Catalan number
 
    Feel free to use any implementation style.
 
@@ -110,12 +113,19 @@ Textbooks for References:
 Debriefing (required!): --------------------------
 
 0. What's your name?
+    Kejo Hsieh
 1. Approximately how many hours did you spend on this assignment?
+    5 hours
 2. Would you rate it as easy, moderate, or difficult?
+    mis.py is difficult, other are moderate
 3. Did you work on it mostly alone, or mostly with other people?
+    Alone
 4. How deeply do you feel you understand the material it covers (0%-100%)?
+    80%
 5. Which part(s) of the course you like the most so far?
+    Writing code
 6. Which part(s) of the course you dislike the most so far?
+    Blank filling quizzes
 
 This section is intended to help us calibrate the homework assignments.
 Your answers to this section will *not* affect your grade; however, skipping it

@@ -21,12 +21,8 @@ def max_wis(list):
 
     return max_val, max_list
 
-# res = {}
-# res['a'] = 8
-# print(res['a'])
 
-
-# def fib(a,l):
+# def btm_up(a,l):
 #     total = 0
 #     numList = []
 #     i = l
