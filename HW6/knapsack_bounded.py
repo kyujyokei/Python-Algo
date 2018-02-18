@@ -37,20 +37,22 @@ def best(x, items):
                     max_c = min(k,copies)
                     list[i-1] = max_c
                     temp += [[opt[i-1][j-max_c*weight][0]+max_c*value,max_c]]
-
-            opt[i][j] = max(temp)
+            temp.sort(key=lambda x: (-x[0], x[1]))
+            # if i == 2:
+                # print(temp[0])
+            opt[i][j] = temp[0]
+            # print(opt[i][j])
     def solution(sum, num):
         temp_x = x
         n = len(items) -1
         res = [0 for a in range(len(items)-1)]
         for i in range(n-1,-1,-1):
-            print(opt[i+1][temp_x])
+            # print(opt[i+1][temp_x])
             res[i] = opt[i+1][temp_x][1]
-            temp_x -= items[i][0]*res[i]
+            temp_x -= items[i+1][0]*res[i]
 
         return res
 
-    print(opt)
     res = solution(opt[i][j][0],opt[i][j][1])
     # print(opt)
     return opt[i][j][0],res
@@ -69,7 +71,7 @@ def best(x, items):
 #
 #    tie-breaking: same as in p1:
 #
-print(best(3, [(1, 5, 2), (1, 5, 3)]))
+# print(best(3, [(1, 5, 2), (1, 5, 3)]))
 #    (15, [2, 1])
 #
 # print(best(3, [(1, 5, 1), (1, 5, 3)]))
