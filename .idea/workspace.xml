@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0de28815-fe84-40f9-b1e9-fee93a2920b4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW5/Solutions/mis.py" afterPath="$PROJECT_DIR$/HW5/Solutions/mis.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW6/knapsack_bounded.py" afterPath="$PROJECT_DIR$/HW6/knapsack_bounded.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW6/knapsack_unbounded.py" afterPath="$PROJECT_DIR$/HW6/knapsack_unbounded.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW6/report.txt" afterPath="$PROJECT_DIR$/HW6/report.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,68 +16,86 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mis.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW5/mis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mis.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW5/Solutions/mis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="report.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW6/report.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="knapsack_unbounded.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW6/knapsack_unbounded.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="knapsack_bounded.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/HW6/knapsack_bounded.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kmergesort.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW4/kmergesort.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-66">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="mis.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HW5/mis.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="report.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HW6/report.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="169">
+                  <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="knapsack_unbounded.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HW6/knapsack_unbounded.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mis.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/HW5/Solutions/mis.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="knapsack_bounded.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HW6/knapsack_bounded.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="330">
+                  <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="kmergesort.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HW4/kmergesort.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-66">
+                  <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="mis.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/HW5/mis.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,9 +111,10 @@
         <option value="$PROJECT_DIR$/HW5/mis.py" />
         <option value="$PROJECT_DIR$/HW5/report.txt" />
         <option value="$PROJECT_DIR$/HW5/bsts.py" />
-        <option value="$PROJECT_DIR$/HW6/report.txt" />
         <option value="$PROJECT_DIR$/HW6/knapsack_unbounded.py" />
         <option value="$PROJECT_DIR$/HW6/knapsack_bounded.py" />
+        <option value="$PROJECT_DIR$/HW6/report.txt" />
+        <option value="$PROJECT_DIR$/HW5/Solutions/mis.py" />
       </list>
     </option>
   </component>
@@ -139,6 +161,11 @@
             <path>
               <item name="Python-Algo" type="b2602c69:ProjectViewProjectNode" />
               <item name="Python-Algo" type="462c0819:PsiDirectoryNode" />
+              <item name="HW3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Python-Algo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Python-Algo" type="462c0819:PsiDirectoryNode" />
               <item name="HW4" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -171,7 +198,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.knapsack_bounded">
+  <component name="RunManager" selected="Python.mis">
     <configuration name="bitstrings" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -202,23 +229,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python-Algo" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HW5/bsts.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="codecs" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/anaconda/lib/python3.6" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Python-Algo" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/anaconda/lib/python3.6/codecs.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -257,20 +267,37 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="mis" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HW5/Solutions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Python-Algo" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HW5/Solutions/mis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.bsts" />
-      <item index="1" class="java.lang.String" itemvalue="Python.codecs" />
-      <item index="2" class="java.lang.String" itemvalue="Python.bitstrings" />
-      <item index="3" class="java.lang.String" itemvalue="Python.knapsack_bounded" />
-      <item index="4" class="java.lang.String" itemvalue="Python.knapsack_unbounded" />
+      <item index="1" class="java.lang.String" itemvalue="Python.bitstrings" />
+      <item index="2" class="java.lang.String" itemvalue="Python.knapsack_bounded" />
+      <item index="3" class="java.lang.String" itemvalue="Python.knapsack_unbounded" />
+      <item index="4" class="java.lang.String" itemvalue="Python.mis" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.knapsack_bounded" />
-        <item index="1" class="java.lang.String" itemvalue="Python.knapsack_unbounded" />
-        <item index="2" class="java.lang.String" itemvalue="Python.bsts" />
-        <item index="3" class="java.lang.String" itemvalue="Python.bitstrings" />
-        <item index="4" class="java.lang.String" itemvalue="Python.codecs" />
+        <item index="0" class="java.lang.String" itemvalue="Python.mis" />
+        <item index="1" class="java.lang.String" itemvalue="Python.knapsack_bounded" />
+        <item index="2" class="java.lang.String" itemvalue="Python.knapsack_unbounded" />
+        <item index="3" class="java.lang.String" itemvalue="Python.bsts" />
+        <item index="4" class="java.lang.String" itemvalue="Python.bitstrings" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +321,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34008098" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2780027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -347,7 +374,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -674,18 +701,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW5/mis.py">
+    <entry file="file://$PROJECT_DIR$/HW6/knapsack_unbounded.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="405">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW5/Solutions/mis.py">
+    <entry file="file://$PROJECT_DIR$/HW6/knapsack_bounded.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -700,24 +727,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HW6/report.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="64" />
+        <state relative-caret-position="169">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW6/knapsack_unbounded.py">
+    <entry file="file://$PROJECT_DIR$/HW5/mis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW6/knapsack_bounded.py">
+    <entry file="file://$PROJECT_DIR$/HW5/Solutions/mis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding />
         </state>
       </provider>

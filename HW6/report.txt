@@ -18,9 +18,13 @@ Please answer time/space complexities for each problem in report.txt.
 
 0. For each of the coding problems below:
    (a) Describe an exhaustive solution, and analyze compleixty (might be exponential).
+        Figure out all the possibilities O(2^n)
    (b) Describe a greedy solution, and analyze complexity.
+        Calculate a ratio of value/weight for each item, then use the item with best value to fill the knapsack
    (c) Show a counterexample to the greedy solution.
+        If we have knapsack limit = 10, items: A(3,5),B(2,4), A has a better value of ratio, but B*5 actually provides the max value
    (d) Theoretically, is the top-down solution faster, or the bottom-one one faster?
+        Top down would be faster, because it will not go through every content in the 2D list, while bottom-up will
    (e) Empirically, which one is faster? (Try some long random lists)
 
 1. Unbounded Knapsack
@@ -54,6 +58,7 @@ Please answer time/space complexities for each problem in report.txt.
    (109, [1, 1, 7, 1])
 
    Q: What are the time and space complexities?
+        Space: O(w), TimeO(n*w)
 
    filename: knapsack_unbounded.py
 
@@ -84,6 +89,7 @@ Please answer time/space complexities for each problem in report.txt.
    (236, [6, 7, 3, 7, 2])
 
    Q: What are the time and space complexities?
+    Space: O(n*W), Time: O(nW*maxci)
 
    filename: knapsack_bounded.py
 
@@ -95,13 +101,16 @@ THESE EXISTING CASES ARE WAY TOO TRIVIAL.
 Debriefing (required!): --------------------------
 
 0. What's your name?
+    Kejo Hsieh
 1. Approximately how many hours did you spend on this assignment?
+    8 hours
 2. Would you rate it as easy, moderate, or difficult?
+    a bit difficult
 3. Did you work on it mostly alone, or mostly with other people?
+    alone
 4. How deeply do you feel you understand the material it covers (0%-100%)?
+    80%
 5. Which part(s) of the course you like the most so far?
+    doing homework
 6. Which part(s) of the course you dislike the most so far?
-
-This section is intended to help us calibrate the homework assignments.
-Your answers to this section will *not* affect your grade; however, skipping it
-will certainly do.
+    taking quizzes

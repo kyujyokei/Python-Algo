@@ -26,9 +26,6 @@ def best(x, items):
 
             opt[i][j] = max(temp)
 
-
-    print("OPT: ",opt)
-    print("LIST: ",list)
     return opt[i][j][0],opt[i][j][1]
 
 
@@ -41,9 +38,9 @@ def best(x, items):
 #    **All numbers are positive integers.**
 #    What's the best value for a bag of W?
 #
-#    >>> best(3, [(2, 4), (3, 5)])
+best(3, [(2, 4), (3, 5)])
 #    (5, [0, 1])
-print(best(3, [(2, 4, 2), (3, 5, 3)]))
+# print(best(3, [(2, 4, 2), (3, 5, 3)]))
 #    the input to the best() function is W and a list of pairs (w_i, v_i).
 #    this output means to take 0 copies of item 1 and 1 copy of item 2.
 #
@@ -62,7 +59,11 @@ print(best(3, [(2, 4, 2), (3, 5, 3)]))
 #    >>> best(58, [(5, 9), (9, 18), (6, 12)])
 #    (114, [2, 4, 2])
 #
-print(best(92, [(8, 9), (9, 10), (10, 12), (5, 6)]))
+# print(best(92, [(8, 9), (9, 10), (10, 12), (5, 6)]))
+print(best(3, [(1, 5, 1), (1, 5, 3)]))
+#    (15, [1, 2])
+print('===============================')
+print(best(20, [(1, 10, 6), (3, 15, 4), (2, 10, 3)]))
 #    (109, [1, 1, 7, 1])
 #
 #    Q: What are the time and space complexities?
