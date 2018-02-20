@@ -30,28 +30,20 @@ def merge(a, k):
         if len(a) < k or isinstance(a,int): k = len(a)
         for i in range(0,k):
 
-            print("A",a)
             if isinstance(a[i],int):
-                print("A[i]:", a[i], " i:", i)
+
                 heapq.heappush(heap, [a[i], 0, i])
             elif a[i] != []:
-                print("A[i]:", a[i], " i:", i)
+
                 heapq.heappush(heap, [a[i][0], 0, i])
-
-                # print("FIRST:", heap)
             ptr += [[0]]
-
-            print("TEMP:",heap,"\n")
 
         while heap != []:
             min_v = heapq.heappop(heap)
             var, idx, list_idx = min_v
-            # print("MIN:",min_v, "\n")
             pq.append(var)
-            # ptr[list_idx] += 1
             if idx < len(a[list_idx]) - 1:
                 heapq.heappush(heap,[a[list_idx][idx+1],idx+1,list_idx])
-            # print("HEAP:", heap)
 
         # print("---------pq---------",pq)
         return pq

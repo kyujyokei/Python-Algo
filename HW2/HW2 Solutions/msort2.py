@@ -15,5 +15,7 @@ def mergesorted(a, b):
             yield a[i]
             i += 1
 
+m = mergesort([4, 2, 5, 1, 6, 3])
 
-
+for i in m :
+    print(i)

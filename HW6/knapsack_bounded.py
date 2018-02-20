@@ -1,25 +1,27 @@
 def best_top(x, items):
-    sum = []
-    n = len(items)
-    number_of_items = len(items) - 1
-    list = [0 for i in items]
-    opt = [[[0, 0] for i in range(0, x + 1)] for j in range(0, n + 1)]
+    back = {}
+    for i in range(0, len(items)):  back[i] = {}
+    bounded = {}
+    for i in range(0, len(items)+1):
+        bounded[i] = {}
+        bounded[i][0] = 0
+    for i in range(0, x+1): bounded[0][i] = 0
 
     def _best(x, i):
+        if x not in bounded[i+1]:
+            max_v = 0
+            w = items[i][0]
+            count = min(items[i][2], x//w)
+            for j in range(0, count+1):
+                v = _best(x - j*w, i-1)
+                if v + items[i][1]*j > max_v:
+                    max_v = v + items[i][1]*j
+                    back[i][x] = j
+            bounded[i+1][x] = max_v
+            print(bounded)
+        return bounded[i+1][x]
 
-        if i < 0: return 0
-        if x == 0: return 0
-        weight, value, copies = items[i][0],items[i][1],items[i][2]
-        temp = []
-        for j in range(0, x//weight + 1):
-            max_c = min(j, copies)
-            temp += [_best(x-(max_c*weight),i-1)+max_c*value]
-        opt[i][j] = max(temp)
-        return opt[i][j]
-
-    res = _best(x, number_of_items)
-
-    return res
+    return _best(x, len(items)-1)
 
 
 
@@ -96,16 +98,16 @@ def best(x, items):
 #
 #    tie-breaking: same as in p1:
 # print('===============================')
-print(best(3, [(1, 5, 2), (1, 5, 3)]))
+# print(best(3, [(1, 5, 2), (1, 5, 3)]))
 #    (15, [2, 1])
 # print('===============================')
-# print(best(3, [(1, 5, 1), (1, 5, 3)]))
+print(best_top(3, [(1, 5, 1), (1, 5, 3)]))
 #    (15, [1, 2])
 # print('===============================')
 # print(best(20, [(1, 10, 6), (3, 15, 4), (2, 10, 3)]))
 #    (130, [6, 4, 1])
 # print('===============================')
-print(best(92, [(1, 6, 6), (6, 15, 7), (8, 9, 8), (2, 4, 7), (2, 20, 2)]))
+# print(best_top(92, [(1, 6, 6), (6, 15, 7), (8, 9, 8), (2, 4, 7), (2, 20, 2)]))
 #    (236, [6, 7, 3, 7, 2])
 #
 #    Q: What are the time and space complexities?

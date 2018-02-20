@@ -1,7 +1,9 @@
-def _mergesorted((a, numa), (b, numb)):
+def _mergesorted(tempa, tempb):
+    a, numa = tempa
+    b, numb = tempb
     if a == [] or b == []:
-        return a+b, numa+numb
-    c, numc = [], numa+numb
+        return a + b, numa + numb
+    c, numc = [], numa + numb
     i, j = 0, 0
     la, lb = len(a), len(b)
     while i < la or j < lb:
@@ -22,3 +24,5 @@ def _mergesort(lst):
 
 def num_inversions(lst):
     return _mergesort(lst)[1]
+
+print(num_inversions([4, 1, 3, 2]))

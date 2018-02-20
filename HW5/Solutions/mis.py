@@ -8,7 +8,7 @@ def max_wis(a):
             return best[i]
         best[i] = max(top_down(i-1), top_down(i-2)+a[i])
         back[i] = best[i] == best[i-1]
-
+        # print(best)
         return best[i]
 
     return top_down(n-1), solution(n-1, a, back)

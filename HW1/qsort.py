@@ -17,7 +17,7 @@ def _search(tree, x):
         # print(tree)
         mid = tree[1]
         left = tree[0]
-        right = tree [2]
+        right = tree[2]
 
         if x == mid:
             return mid

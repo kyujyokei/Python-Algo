@@ -9,6 +9,7 @@ def nbesta(a, b):
         for j in b:
             list.append([i,j])
     list.sort(key = lambda tup: tup[0]+tup[1])
+    print(list)
     return list[:l]
 
 
@@ -21,6 +22,7 @@ def nbestb(a, b):
     q = qselect(len(a), list)
     # print(list)
     # print(q)
+    print(list)
     res = [ x[0] for x in list if x[1] <= q ]
     return res[:l]
 
@@ -102,10 +104,10 @@ def qselect(idx, a):
 #    Q: What are the time complexities of these algorithms?
 #
 a, b = [4, 1, 5, 3], [2, 6, 3, 4]
+nbesta(a, b)
+nbestb(a, b)   # algorithm (b), slow
 
-# nbestb(a, b)   # algorithm (b), slow
-
-# nbestc(a, b)   # algorithm (c), fast
+nbestc(a, b)   # algorithm (c), fast
 
 #    [(1, 2), (1, 3), (3, 2), (1, 4)]
 #

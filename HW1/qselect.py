@@ -5,7 +5,7 @@ def qselect(idx, a):
         return []
     else:
         r = random.randint(0,len(a)-1)
-        a[0], a[r]  = a[r], a[0]
+        a[0], a[r] = a[r], a[0]
         pivot = a[0]
         left = [x for x in a if x < pivot]
         l_len = len(left)
@@ -17,3 +17,5 @@ def qselect(idx, a):
         else:
             right = [x for x in a[1:] if x >= pivot]
             return qselect(idx - l_len - 1, right)
+
+print(qselect(6,[1,3,6,7,8,10,99]))
