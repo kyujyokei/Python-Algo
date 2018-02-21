@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-# O(Wn') time where n'=sum_i c_i; O(Wn) space
 def best(W, items):
     n = len(items)
     back = defaultdict(int)
@@ -61,7 +60,7 @@ print(best2(20, [(1, 10, 6), (3, 15, 4), (2, 10, 3)]))
 
 from random import randint
 for _ in range(1000):
-    a = [(randint(1,10), randint(1,20), randint(1, 10)) for _ in xrange(10)]
+    a = [(randint(1,10), randint(1,20), randint(1, 10)) for _ in range(10)]
     X = randint(1,200)
     s, lst = best(X, a)
     if min(lst) > -1:

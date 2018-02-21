@@ -2,7 +2,7 @@ from collections import defaultdict
 
 # O(nW) time; O(W) space
 def best(W, items):
-    back = defaultdict(lambda : -1)
+    back = defaultdict(lambda: -1)
     
     def _best(x, opt=defaultdict(int)):
         if x in opt:
@@ -13,11 +13,13 @@ def best(W, items):
                 if ans > opt[x]:
                     opt[x] = ans
                     back[x] = i
+        # print(opt[x])
         return opt[x]
 
     return _best(W), solution(W, back, items)
 
 def solution(x, back, items):
+    # print(back)
     if back[x] == -1:
         return [0] * len(items)
     w, _ = items[back[x]]
