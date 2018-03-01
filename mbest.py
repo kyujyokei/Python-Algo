@@ -7,7 +7,7 @@ def _mbest(n, matrix):
         value, a, i, j = heappop(heap)
         yield value
         print(i)
-        curr = matrix[i]
+        curr = matrix[a]
         if i + 1 < len(curr):
             if (matrix[a][i+1][j],a,i+1,j) not in heap: heappush(heap,((matrix[a][i+1][j]),a,i+1,j))
         if j + 1 < len(curr[a]):
