@@ -1,22 +1,23 @@
 def longest(n, list):
     order, ad_list = topol(n, list)
     paths = {}
+    max = [0,[]]
 
     if order == None: return None
-    # print(ad_list)
     for i in order:
         if i in ad_list:
-            paths.setdefault(i, []).append([0, [i]])
+            if i not in paths:
+                paths[i] = [0, [i]]
+
             for x in ad_list[i]:
-                # print(paths[i][0][1])
-                print(i, paths[i])
-                last_sum, last_path = paths[i][0]
-                paths[x] = [last_sum + 1, last_path + [x]]
+                if x not in paths:
+                    paths[x] = [0, [x]]
+                last_sum, last_path = paths[i]
+                if last_sum + 1 > paths[x][0]:
+                    paths[x] = [last_sum + 1, last_path + [x]]
+                    if paths[x] > max: max = paths[x]
 
-
-
-        print(paths, i)
-    return 0
+    return max
 
 
 
@@ -66,7 +67,7 @@ def topol (n, list):
 #
 #    e.g., for the above example:
 #
-longest(8, [(0,2), (1,2), (2,3), (2,4), (4,3), (3,5), (4,5), (5,6), (5,7)])
+print(longest(8, [(0,2), (1,2), (2,3), (2,4), (4,3), (3,5), (4,5), (5,6), (5,7)]))
 #    (5, [0, 2, 3, 4, 5, 6])
 #
 #    Tie-breaking: arbitrary. any longest path is fine.
