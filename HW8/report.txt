@@ -74,8 +74,11 @@ Please answer time/space complexities for each problem in report.txt.
    questions:
    (a) did you realize that bottom-up implementations of DP use (implicit) topological orderings?
        e.g., what is the topological ordering in your (or my) bottom-up bounded knapsack code?
+        Yes because it requires the former result to be calculated before present result can be processed.
    (b) what about top-down implementations? what order do they use to traverse the graph?
+        Same as top down DP...?
    (c) does that suggest there is a top-down solution for topological sort as well?
+        Of course there is
 
 3. [WILL BE GRADED]
    Viterbi Algorithm For Longest Path in DAG (see DPV 4.7, [2], CLRS problem 15-1)
@@ -105,9 +108,16 @@ Please answer time/space complexities for each problem in report.txt.
 Debriefing (required!): --------------------------
 
 0. What's your name?
+    Kejo Hsieh
 1. Approximately how many hours did you spend on this assignment?
+    8 hours
 2. Would you rate it as easy, moderate, or difficult?
+    Moderate but time consuming
 3. Did you work on it mostly alone, or mostly with other people?
+    Alone
 4. How deeply do you feel you understand the material it covers (0%–100%)?
+    80%
 5. Which part(s) of the course you like the most so far?
+    Doing homework
 6. Which part(s) of the course you dislike the most so far?
+    Taking test & quizzes
