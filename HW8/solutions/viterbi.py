@@ -5,10 +5,13 @@ from collections import defaultdict
 def order(n, edges):
 
     degrees = defaultdict(lambda : 1) # dummy source -> all v
+    # print(list(degrees))
     for u in edges:
         for v in edges[u]:
+            print(edges[u])
             degrees[v] += 1
     edges[-1] = list(range(n)) # dummy source -> everybody
+    # print(list(degrees))
 
     current = [-1] # zero-degrees nodes
     front = 0  # queue head pointer
