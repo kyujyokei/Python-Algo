@@ -11,7 +11,7 @@ def order(n, edges):
             print(edges[u])
             degrees[v] += 1
     edges[-1] = list(range(n)) # dummy source -> everybody
-    # print(list(degrees))
+    print(list(degrees))
 
     current = [-1] # zero-degrees nodes
     front = 0  # queue head pointer

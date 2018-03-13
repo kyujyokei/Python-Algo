@@ -4,6 +4,35 @@ def tsp(n, arr):
     return 0
 
 
+from heapdict import heapdict
+from collections import defaultdict
+
+def shortest(n, edges):
+
+    ad_list = defaultdict(lambda : [])
+    hd = heapdict()
+    visited = dict()
+
+    for v, u, c in edges:
+        ad_list[v].append([u, c])
+        ad_list[u].append([v, c])
+
+    hd[0] = [0,0]
+    while hd:
+        obj = hd.popitem()
+        curr, [dist, last] = obj
+        visited[curr] = [dist, last]
+        if curr == n-1: break
+        for u, c in ad_list[curr]:
+            if u not in visited and (u not in hd or hd[u][0] > c + dist):
+                hd[u] = [c + dist, curr]
+
+    def solution(n):
+        if n == 0 : return [0]
+        _, last = visited[n]
+        return solution(last)+[n]
+
+    return [visited[n-1][0], solution(n-1)]
 
 
 # 2. Traveling Salesman Problem (TSP).
