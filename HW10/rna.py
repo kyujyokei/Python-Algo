@@ -1,10 +1,7 @@
 
 def best(n):
 
-    res = {}
-    l = 0
-    r = len(n)
-    d = {'A':[0,'.'], 'U':[0,'.'], 'C':[0,'.'], 'G':[0,'.'], 'AU':[1,'()'], 'GC':[1,'()'], 'GU':[1,'()'], 'UA':[1,'()'], 'CG':[1,'()'], 'UG':[1,'()']}
+    d = {'':[0,''],'A':[0,'.'], 'U':[0,'.'], 'C':[0,'.'], 'G':[0,'.'], 'AU':[1,'()'], 'GC':[1,'()'], 'GU':[1,'()'], 'UA':[1,'()'], 'CG':[1,'()'], 'UG':[1,'()'], 'AC':[0,'..'], 'CA':[0,'..'], 'UC':[0,'..'], 'CU':[0,'..'], 'AG':[0,'..'], 'GA':[0,'..']}
 
     def pair(a):
         rna = set(['AU', 'GC', 'GU', 'UA', 'CG', 'UG'])
@@ -12,31 +9,29 @@ def best(n):
 
     def find(n):
 
-        if len(n) == 1:
-            return 0, '.'
-        elif len(n) == 0:
-            return 0, ''
         i, j = 0, len(n)
-        if pair(n[i] + n[j-1]): # if they make a pair
-            sum, path = find(n[i+1:j-1])
-            return sum + 1, '(' + path + ')'
+        if n in d:
+            return d[n]
         else:
-            temp = []
-            for k in range(1,j):
-                sum1, path1 = find(n[0:k])
-                sum2, path2 = find(n[k:j])
-                temp.append([sum1+sum2, path1+path2])
-            # print(temp)
-            return max(temp, key= lambda x: x[0])
+            if pair(n[i] + n[j-1]): # if they make a pair
+                # print(n[i] + n[j-1])
+                sum, path = find(n[i+1:j-1])
+                d[n] = [sum + 1, '(' + path + ')']
+                return d[n]
+            else:
+                temp = []
+                for k in range(1,j):
+                    if n[0:k] not in d:
+                        d[n[0:k]] = find(n[0:k])
+                    if n[k:j] not in d:
+                        d[n[k:j]] = find(n[k:j])
+                    print("D:",d[n[0:k]], d[n[k:j]])
+                    temp.append([d[n[0:k]][0]+d[n[k:j]][0], d[n[0:k]][1]+d[n[k:j]][1]])
+                # print(temp)
+                return max(temp, key= lambda x: x[0])
 
-    print(dict(res))
-    def solution(lis):
-        s = ''
-        for i in range(0,len(lis)):
-            s += lis[i]
-        return s
 
-    return find(n, l, r), solution(res)
+    return find(n)
 
 def total():
     return 0
@@ -45,4 +40,4 @@ def kbest():
     return 0
 
 
-print(best('GCACG'))
+print(best('AGGCAUCAAACCCUGCAUGGGAGCACCGCCACUGGCGAUUUUGGUA'))
