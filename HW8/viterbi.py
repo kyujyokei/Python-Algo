@@ -48,7 +48,6 @@ def longest(n, lis):
     return max[0],max[1]
 
 
-
 # 3. [WILL BE GRADED]
 #    Viterbi Algorithm For Longest Path in DAG (see DPV 4.7, [2], CLRS problem 15-1)
 #
