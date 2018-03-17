@@ -38,55 +38,84 @@ def best(n):
     i, j = 0, len(n)
     d = {'': [0, ''], 'A': [0, '.'], 'U': [0, '.'], 'C': [0, '.'], 'G': [0, '.']}
 
-    def pair(a):
-        rna = set(['AU', 'GC', 'GU', 'UA', 'CG', 'UG'])
-        return a in rna
+    rna = {'AU', 'GC', 'GU', 'UA', 'CG', 'UG'}
 
-    def find(n,i,j):
-
-        # print("Now solving n:",n[i:j])
+    def find(i, j):
         if n[i:j] in d:
             return d[n[i:j]]
 
         matched = []
         for k in range(i+1, j):
-            # print("Pairing:",n[i] + n[k])
-            if pair(n[i] + n[k]):  # if they make a pair
-                # print(k, i, j)
-                sum, path = find(n, i+1, k)
-                sum1, path1 = find(n, k+1, j)
-                # print("n:", n[i+1:k], n[k+1:j], sum, path, sum1, path1)
-                # matched.append([ sum + sum1 + 1 ,'(' + str(path) + ')' + str(path1)])
+            if (n[i] + n[k]) in rna:  # if they make a pair
+                sum, path = find(i+1, k)   # find between i and k
+                sum1, path1 = find(k+1, j)   # find from k+1 to j
+                if not matched or sum + sum1 + 1 > matched[0]:   # update the best match
+                    matched = [sum + sum1 + 1, '(' + str(path) + ')' + str(path1)]
 
-                if not matched or  sum + sum1 + 1 > matched[0]:
-                    matched = [ sum + sum1 + 1 ,'(' + str(path) + ')' + str(path1)]
-            # print("Matched results:",n[i:j],matched)
+        maximum = matched if matched else [0,'.' * len(n[i:j])]   # all dots if no match
 
-        # maximum = max(matched) if matched else [0,'.' * len(n[i:j])]
-
-        maximum = matched if matched else [0,'.' * len(n[i:j])]
-        # print('MAXIMUM:',maximum)
-        next_sum, next_path = find(n, i+1, j)
-        # print("Next sum, Next Path:",next_sum, next_path)
+        next_sum, next_path = find(i+1, j)
         next_com = [next_sum, '.' + str(next_path)]
 
         d[n[i:j]] = max(maximum, next_com, key=lambda x: x[0])
 
         return d[n[i:j]]
-    # find(n,i,j)
+
+    return find(i, j)
 
 
-    return find(n,i,j)
+def total(n):
 
+    i, j = 0, len(n)
+    d = {'': 1, 'A': 1, 'U': 1, 'C': 1, 'G': 1}   # format: sum, possibilities, path
+    rna = {'AU', 'GC', 'GU', 'UA', 'CG', 'UG'}
 
-def total():
-    return 0
+    def find(i, j):
+        if n[i:j] in d:
+            return d[n[i:j]]
 
-def kbest():
-    return 0
+        matched = 0
+        for k in range(i + 1, j):
+            if (n[i] + n[k]) in rna:  # if they make a pair
+                sum = find(i + 1, k)  # find between i and k
+                sum1 = find(k + 1, j)  # find from k+1 to j
+                matched += (sum * sum1)
 
-# print(best('AGGCAUCAAACCCUGCAUGGGAGCACCGCCACUGGCGAUUUUGGUA'))
+        next_sum = find(i + 1, j)
 
-# slices = [0,1,2,3,4,5]
+        d[n[i:j]] = matched + next_sum
 
-# print(slices[0:3])
+        return d[n[i:j]]
+
+    return find(i, j)
+
+def kbest(n):
+
+    i, j = 0, len(n)
+    d = {'': [[0, '']], 'A': [[0, '.']], 'U': [[0, '.']], 'C': [[0, '.']], 'G': [[0, '.']]}   # format: sum, possibilities, paths(a lot)
+    rna = {'AU', 'GC', 'GU', 'UA', 'CG', 'UG'}
+
+    def find(i, j):
+        if n[i:j] in d:
+            return d[n[i:j]]
+
+        matched = []
+        for k in range(i+1, j):
+            if (n[i] + n[k]) in rna:  # if they make a pair
+                sum, path = find(i+1, k)   # find between i and k
+                sum1, path1 = find(k+1, j)   # find from k+1 to j
+                if not matched or sum + sum1 + 1 > matched[0]:   # update the best match
+                    matched = [sum + sum1 + 1, '(' + str(path) + ')' + str(path1)]
+
+        maximum = matched if matched else [0,'.' * len(n[i:j])]   # all dots if no match
+
+        next_sum, next_path = find(i+1, j)
+        next_com = [next_sum, '.' + str(next_path)]
+
+        d[n[i:j]] = max(maximum, next_com, key=lambda x: x[0])
+
+        return d[n[i:j]]
+
+    return find(i, j)
+
+print(kbest('ACAGU'))
