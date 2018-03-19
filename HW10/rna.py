@@ -56,6 +56,11 @@ def total(n):
 
     return find(i, j)
 
+
+
+
+
+
 def kbest(n, k):
 
     i, j = 0, len(n)
@@ -63,11 +68,7 @@ def kbest(n, k):
     rna = {'AU', 'GC', 'GU', 'UA', 'CG', 'UG'}
 
     def find(i, j):
-        # if d['G'] == []:
-        #     print("STOP")
-        # print("Now finding...",i,j, n[i:j])
-        # print("D is now... ", d, "N[I:J] is ", n[i:j])
-        # bob = n[i:j]
+
         if n[i:j] in d:
             return d[n[i:j]]
 
@@ -79,11 +80,9 @@ def kbest(n, k):
                 res2 = find(l+1, j)    # find from l+1 to j
 
                 heap = [[res1[0][0] + res2[0][0] - 1, '(' + res1[0][1] + ')' + res2[0][1], 0, 0]]
-                # print("Heap: ",heap, res1, res2)
 
                 for _ in range(0,k):
                     if not heap: break
-                    # print("HEAP[0]: ",heap[0])
                     summ, path, a, b = heappop(heap)
 
                     if [summ,path] not in matched:
@@ -97,57 +96,44 @@ def kbest(n, k):
             if len(matched) == 0 : matched = [[0,'.' * len(n[i:j])]]
             matrix.append([matched])
 
-            # print("Matrix: ", matrix, n[i:j])
-
         nex = [find(i+1, j)]
 
-        # res = [matched[0]+[0, 0], [nex[0][0],'.' + nex[0][1],1,0]]
-        # print("MATRIX: ", matrix)
         heap = [[matrix[i][0][0][0], matrix[i][0][0][1], i, 0, 0] for i, a in enumerate(matrix)]
         last = len(matrix)
 
         heap.append([nex[0][0][0],'.' + nex[0][0][1], last, 0, 0])
 
-        # print("NEX:", nex, ", LAST: ", last)
-        # print("HEAP:",heap)
-        # print()
         heapify(heap)
         temp = []
 
         for _ in range(0,k):
-            # print("H-POP R:", res[0], k, i, j)
+
             if not heap: break
             [summ, path, m_id, a, b] = heappop(heap)
-            # print("Popped Now:", [summ, path, m_id, a, b])
-            # print("MatrixPopped:", matrix[m_id])
-
 
             if [summ, path] not in temp:
                 temp.append([summ, path])
-            if m_id < last: # comes from matched pairs
 
-                if a + 1 < len(matrix[m_id]):
-                    heappush(heap, [matrix[m_id][a+1][b][0], matrix[m_id][a+1][b][1], m_id, a+1, b])
-                    # print("A:",heap)
-                if b + 1 < len(matrix[m_id][a]):
-                    heappush(heap, [matrix[m_id][a][b+1][0], matrix[m_id][a][b+1][1], m_id, a, b+1])
-                    # print("B:", [matrix[m_id][a][b+1][0], matrix[m_id][a][b+1][1], m_id, a, b+1])
+            if m_id < last: # comes from matched pairs
+                curr = matrix[m_id]
+
+                if a + 1 < len(curr):
+                    heappush(heap, [curr[a+1][b][0],curr[a+1][b][1], m_id, a+1, b])
+
+                if b + 1 < len(curr[a]):
+                    heappush(heap, [curr[a][b+1][0], curr[a][b+1][1], m_id, a, b+1])
+
             else: # comes from nex
                 if a + 1 < len(nex):
                     heappush(heap, [nex[a + 1][b][0], '.' + nex[a + 1][b][1], last, a + 1, b])
-                    # print("LAST A:", heap)
+
                 if b + 1 < len(nex[a]):
                     heappush(heap, [nex[a][b+1][0], '.' + nex[a][b+1][1], last, a, b+1])
-                    # print("LAST B:", [nex[a][b+1][0], '.' + nex[a][b+1][1], last, a, b+1])
 
-            # print()
-
-            # if len(res) >= k: break
-        # next_com = [next_sum, '.' + str(next_path)]
 
         d[n[i:j]] = temp
 
-        return d[n[i:j]]
+        return temp
 
     f = find(i, j)
 
@@ -155,4 +141,6 @@ def kbest(n, k):
 
     return f
 
-# print(kbest('CCCGGG',10))
+# print(kbest('AACCGCUGUGUCAAGCCCAUCCUGCCUUGUU',20))
+
+
