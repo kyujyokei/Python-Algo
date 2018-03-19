@@ -97,6 +97,8 @@ def kbest(n, k):
             matrix.append([matched])
 
         nex = [find(i+1, j)]
+        # print(nex)
+        # next_arr =
 
         heap = [[matrix[i][0][0][0], matrix[i][0][0][1], i, 0, 0] for i, a in enumerate(matrix)]
         last = len(matrix)
@@ -141,6 +143,6 @@ def kbest(n, k):
 
     return f
 
-# print(kbest('AACCGCUGUGUCAAGCCCAUCCUGCCUUGUU',20))
+print(kbest('AACCGCUGUGUCAAGCCCAUCCUGCCUUGUU',20))
 
 
