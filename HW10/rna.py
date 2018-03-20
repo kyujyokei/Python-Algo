@@ -72,16 +72,15 @@ def kbest(n, k):
 
     def find(i, j):
 
-        # if (i,j) in dict_best:
-        #     return dict_best[(i,j)]
-
         if n[i:j] in d:
             return d[n[i:j]]
 
         matrix = []
+        heap = []
         check_set = set()
-        a, b = [], []
+
         for l in range(i+1, j):
+            a, b = [], []
             matched = []
             if (n[i] + n[l]) in rna:  # if they make a pair
                 a = find(i+1, l)    # find between i and l
@@ -89,13 +88,21 @@ def kbest(n, k):
 
             if a or b: matched = [a,b,len(matrix)]
 
-            if matched: matrix.append(matched)
+            if matched:
+                matrix.append(matched)
+                ll = len(matrix)-1
+                heap.append([matrix[ll][0][0][0] + matrix[ll][1][0][0] - 1,'('+ matrix[ll][0][0][1] + ')'+ matrix[ll][1][0][1], matrix[ll][2], 0, 0])
+                check_set.add((ll, 0, 0))
 
         nex = find(i+1, j)
-        heap = [[matrix[i][0][0][0] + matrix[i][1][0][0] - 1,'('+ matrix[i][0][0][1] + ')'+ matrix[i][1][0][1], matrix[i][2], 0, 0] for i, a in enumerate(matrix)]
+        # heap = [[matrix[i][0][0][0] + matrix[i][1][0][0] - 1,'('+ matrix[i][0][0][1] + ')'+ matrix[i][1][0][1], matrix[i][2], 0, 0] for i, a in enumerate(matrix)]
         last = len(matrix)
+        # for i in range(last):
+        #     check_set.add((i, 0, 0))
         heap.append([nex[0][0], '.' + nex[0][1], last, 0])
-
+        check_set.add((last, 0, 0))
+        # print("M:", last, matrix)
+        # print("C:", check_set)
         heapify(heap)
         temp = []
 
@@ -105,40 +112,39 @@ def kbest(n, k):
             if len(temp) >= k: break
 
             popped = heappop(heap)
+            # print(popped, heap)
 
 
-            if len(popped) == 5: #from matched
+            if len(popped) == 5: # from matched
 
                 summ, path, m_id, a, b = popped
 
-                if (m_id, a, b) not in check_set:
-                    temp.append([summ, path])
-                    # check_set.add((m_id, a, b))
 
 
-                    curr = matrix[m_id]
+                # if (m_id, a, b) not in check_set:
+                temp.append([summ, path])
+                # check_set.add((m_id, a, b))
 
-                    if a + 1 < len(curr[0]) and (m_id, a+1, b) not in check_set:
-                        heappush(heap, [matrix[m_id][0][a+1][0] + matrix[m_id][1][b][0] - 1 ,'('+ matrix[m_id][0][a+1][1] + ')'+ matrix[m_id][1][b][1], matrix[m_id][2], a+1, b])
-                        check_set.add((m_id, a+1, b))
-                    if b + 1 < len(curr[1]) and (m_id, a, b+1) not in check_set:
-                        heappush(heap, [matrix[m_id][0][a][0] + matrix[m_id][1][b+1][0] - 1,'(' + matrix[m_id][0][a][1] + ')' + matrix[m_id][1][b+1][1], matrix[m_id][2], a, b+1])
-                        check_set.add((m_id, a, b+1))
-            else: #from nex
+
+                curr = matrix[m_id]
+
+                if a + 1 < len(curr[0]) and (m_id, a+1, b) not in check_set:
+                    heappush(heap, [matrix[m_id][0][a+1][0] + matrix[m_id][1][b][0] - 1 ,'('+ matrix[m_id][0][a+1][1] + ')'+ matrix[m_id][1][b][1], matrix[m_id][2], a+1, b])
+                    check_set.add((m_id, a+1, b))
+                if b + 1 < len(curr[1]) and (m_id, a, b+1) not in check_set:
+                    heappush(heap, [matrix[m_id][0][a][0] + matrix[m_id][1][b+1][0] - 1,'(' + matrix[m_id][0][a][1] + ')' + matrix[m_id][1][b+1][1], matrix[m_id][2], a, b+1])
+                    check_set.add((m_id, a, b+1))
+            else: # from nex
 
                 summ, path, m_id, idx = popped
 
-                if (m_id, idx) not in check_set:
-                    temp.append([summ, path])
-                    # check_set.add((m_id, idx))
+                temp.append([summ, path])
 
+                if idx + 1 < len(nex) and (m_id, idx+1, 0) not in check_set:
+                    heappush(heap, [nex[idx+1][0], '.' + nex[idx+1][1], m_id, idx+1])
+                    check_set.add((m_id, idx+1, 0))
 
-                    if idx < len(nex) and (m_id, idx) not in check_set:
-
-                        heappush(heap, [nex[idx][0], '.' + nex[idx][1], m_id, idx+1])
-                        check_set.add((m_id, idx))
-
-            print("C SET: ",check_set)
+            # print("C SET: ",check_set)
 
         d[n[i:j]] = temp
         # print(temp)
