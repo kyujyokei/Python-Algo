@@ -1,4 +1,6 @@
 from heapq import heapify, heappop, heappush, nsmallest
+from collections import defaultdict
+from time import time
 
 
 def best(n):
@@ -65,84 +67,96 @@ def kbest(n, k):
 
     i, j = 0, len(n)
     d = {'': [[0, '']], 'A': [[0, '.']], 'U': [[0, '.']], 'C': [[0, '.']], 'G': [[0, '.']]}   # format: sum, possibilities, paths(a lot)
+    # dict_best = defaultdict(-1)
     rna = {'AU', 'GC', 'GU', 'UA', 'CG', 'UG'}
 
     def find(i, j):
+
+        # if (i,j) in dict_best:
+        #     return dict_best[(i,j)]
 
         if n[i:j] in d:
             return d[n[i:j]]
 
         matrix = []
+        check_set = set()
+        a, b = [], []
         for l in range(i+1, j):
             matched = []
             if (n[i] + n[l]) in rna:  # if they make a pair
-                res1 = find(i+1, l)    # find between i and l
-                res2 = find(l+1, j)    # find from l+1 to j
+                a = find(i+1, l)    # find between i and l
+                b = find(l+1, j)    # find from l+1 to j
 
-                heap = [[res1[0][0] + res2[0][0] - 1, '(' + res1[0][1] + ')' + res2[0][1], 0, 0]]
+            if a or b: matched = [a,b,len(matrix)]
 
-                for _ in range(0,k):
-                    if not heap: break
-                    summ, path, a, b = heappop(heap)
+            if matched: matrix.append(matched)
 
-                    if [summ,path] not in matched:
-                        matched.append([summ,path])
-                    if a+1 < len(res1):
-                        if [[res1[a+1][0] + res2[b][0] - 1, '(' + res1[a+1][1] + ')' + res2[b][1]], a+1, b] not in heap:
-                            heappush(heap, [res1[a+1][0] + res2[b][0] - 1, '(' + res1[a+1][1] + ')' + res2[b][1], a+1, b])
-                    if b+1 < len(res2):
-                        if [[res1[a][0] + res2[b+1][0] - 1, '(' + res1[a][1] + ')' + res2[b+1][1]], a, b+1] not in heap:
-                            heappush(heap, [res1[a][0] + res2[b+1][0] - 1, '(' + res1[a][1] + ')' + res2[b+1][1], a, b+1])
-            if len(matched) == 0 : matched = [[0,'.' * len(n[i:j])]]
-            matrix.append([matched])
-
-        nex = [find(i+1, j)]
-        # print(nex)
-        # next_arr =
-
-        heap = [[matrix[i][0][0][0], matrix[i][0][0][1], i, 0, 0] for i, a in enumerate(matrix)]
+        nex = find(i+1, j)
+        heap = [[matrix[i][0][0][0] + matrix[i][1][0][0] - 1,'('+ matrix[i][0][0][1] + ')'+ matrix[i][1][0][1], matrix[i][2], 0, 0] for i, a in enumerate(matrix)]
         last = len(matrix)
-
-        heap.append([nex[0][0][0],'.' + nex[0][0][1], last, 0, 0])
+        heap.append([nex[0][0], '.' + nex[0][1], last, 0])
 
         heapify(heap)
         temp = []
 
-        for _ in range(0,k):
 
-            if not heap: break
-            [summ, path, m_id, a, b] = heappop(heap)
+        while heap :
 
-            if [summ, path] not in temp:
-                temp.append([summ, path])
+            if len(temp) >= k: break
 
-            if m_id < last: # comes from matched pairs
-                curr = matrix[m_id]
+            popped = heappop(heap)
 
-                if a + 1 < len(curr):
-                    heappush(heap, [curr[a+1][b][0],curr[a+1][b][1], m_id, a+1, b])
 
-                if b + 1 < len(curr[a]):
-                    heappush(heap, [curr[a][b+1][0], curr[a][b+1][1], m_id, a, b+1])
+            if len(popped) == 5: #from matched
 
-            else: # comes from nex
-                if a + 1 < len(nex):
-                    heappush(heap, [nex[a + 1][b][0], '.' + nex[a + 1][b][1], last, a + 1, b])
+                summ, path, m_id, a, b = popped
 
-                if b + 1 < len(nex[a]):
-                    heappush(heap, [nex[a][b+1][0], '.' + nex[a][b+1][1], last, a, b+1])
+                if (m_id, a, b) not in check_set:
+                    temp.append([summ, path])
+                    # check_set.add((m_id, a, b))
 
+
+                    curr = matrix[m_id]
+
+                    if a + 1 < len(curr[0]) and (m_id, a+1, b) not in check_set:
+                        heappush(heap, [matrix[m_id][0][a+1][0] + matrix[m_id][1][b][0] - 1 ,'('+ matrix[m_id][0][a+1][1] + ')'+ matrix[m_id][1][b][1], matrix[m_id][2], a+1, b])
+                        check_set.add((m_id, a+1, b))
+                    if b + 1 < len(curr[1]) and (m_id, a, b+1) not in check_set:
+                        heappush(heap, [matrix[m_id][0][a][0] + matrix[m_id][1][b+1][0] - 1,'(' + matrix[m_id][0][a][1] + ')' + matrix[m_id][1][b+1][1], matrix[m_id][2], a, b+1])
+                        check_set.add((m_id, a, b+1))
+            else: #from nex
+
+                summ, path, m_id, idx = popped
+
+                if (m_id, idx) not in check_set:
+                    temp.append([summ, path])
+                    # check_set.add((m_id, idx))
+
+
+                    if idx < len(nex) and (m_id, idx) not in check_set:
+
+                        heappush(heap, [nex[idx][0], '.' + nex[idx][1], m_id, idx+1])
+                        check_set.add((m_id, idx))
+
+            print("C SET: ",check_set)
 
         d[n[i:j]] = temp
-
+        # print(temp)
         return temp
 
     f = find(i, j)
 
     f = [ [i*-1, _] for i, _ in f ]
+    # print(d)
 
     return f
 
-print(kbest('AACCGCUGUGUCAAGCCCAUCCUGCCUUGUU',20))
+# print(kbest('AGGCAUCAAACCCUGCAUGGGAGCG',10))
 
 
+def performance_test():
+    t = time()
+    print(kbest('AGGCAUCAAACCCUGCAUGGGAGCG',10))
+    print("TestTime:",time() - t)
+
+performance_test()
