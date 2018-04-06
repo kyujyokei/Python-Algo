@@ -15,7 +15,7 @@ def shortest(n, _edges, use_pq=True):
     h[0] = 0 # alternatively, you can also set everything else to +inf
     back = {}
     popped = set() # those already popped (i.e., black nodes)
-    while h: #len(h) > 0:
+    while h: # len(h) > 0:
         v, d = h.popitem()
         popped.add(v)
         if v == n-1: # target is popped (fixed)

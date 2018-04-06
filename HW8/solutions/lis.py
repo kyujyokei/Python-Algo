@@ -43,6 +43,7 @@ def lis(s):
         return "" if i<0 else solution(back[i]) + chr(a[i]) # int to char
 
     a = list(map(ord, s)) + [float("inf")] # convert chars to ints
+    print("A",a)
     d = defaultdict(int)
     back = defaultdict(lambda :- 1)
     for j, cj in enumerate(a):
